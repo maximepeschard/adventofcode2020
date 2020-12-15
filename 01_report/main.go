@@ -11,10 +11,7 @@ import (
 	"github.com/maximepeschard/adventofcode2020/util"
 )
 
-var usage = `Usage: report <input file>`
-
 func main() {
-	flag.Usage = func() { fmt.Println(usage) }
 	flag.Parse()
 	if flag.NArg() != 1 {
 		flag.Usage()

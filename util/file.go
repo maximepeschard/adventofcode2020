@@ -14,6 +14,17 @@ func CloseFile(f *os.File) {
 	}
 }
 
+// ReadLines parses a file with one string per line.
+func ReadLines(f *os.File) ([]string, error) {
+	scanner := bufio.NewScanner(f)
+	var lines []string
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+
+	return lines, scanner.Err()
+}
+
 // ReadInts parses a file with one integer per line.
 func ReadInts(f *os.File) ([]int, error) {
 	scanner := bufio.NewScanner(f)
